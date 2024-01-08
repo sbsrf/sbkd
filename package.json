@@ -5,7 +5,7 @@
     "dist"
   ],
   "type": "module",
-  "appName": "My RIME",
+  "appName": "声笔系列码在线体验",
   "homepage": "https://github.com/LibreService/my_rime",
   "author": {
     "name": "Qijia Liu",

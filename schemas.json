@@ -1,292 +1,474 @@
 [
   {
-    "id": "luna_pinyin",
-    "name": "朙月拼音",
-    "group": "音码",
-    "emoji": true,
-    "target": "luna-pinyin",
-    "dependencies": ["stroke"],
-    "family": [
-      {
-        "id": "luna_pinyin_fluency",
-        "name": "朙月拼音·语句流"
-      },
-      {
-        "id": "luna_quanpin",
-        "name": "朙月全拼",
-        "disabled": true
-      }
-    ],
-    "license": "LGPL-3.0-only"
-  },
-  {
-    "id": "jyut6ping3",
-    "name": "粤语拼音",
-    "group": "方言",
-    "target": "cantonese",
-    "dependencies": ["luna_pinyin", "stroke", "cangjie5"],
-    "variants": [
-      {
-        "id": "simplification",
-        "name": "简"
-      },
-      {
-        "id": "noop",
-        "name": "繁"
-      },
-      {
-        "id": "variants_hk",
-        "name": "港",
-        "languages": ["zh-HK"]
-      },
-      {
-        "id": "trad_tw",
-        "name": "臺",
-        "languages": ["zh-TW"]
-      }
-    ],
-    "hideComment": "emoji",
-    "family": [
-      {
-        "id": "jyut6ping3_ipa",
-        "name": "粤语拼音·IPA"
-      }
-    ],
-    "license": "CC-BY-4.0"
-  },
-  {
-    "id": "double_pinyin",
-    "name": "自然码双拼",
-    "group": "双拼",
-    "target": "double-pinyin",
-    "dependencies": ["luna_pinyin"],
-    "family": [
-      {
-        "id": "double_pinyin_abc",
-        "name": "智能ABC双拼"
-      },
-      {
-        "id": "double_pinyin_flypy",
-        "name": "小鹤双拼"
-      },
-      {
-        "id": "double_pinyin_mspy",
-        "name": "微软双拼"
-      },
-      {
-        "id": "double_pinyin_pyjj",
-        "name": "拼音加加双拼"
-      }
-    ],
-    "license": "GPL-3.0-only"
-  },
-  {
-    "id": "wubi86",
-    "name": "86五笔",
-    "group": "形码",
-    "target": "wubi",
-    "dependencies": ["pinyin_simp"],
+    "id": "sbjm",
+    "name": "声笔简码",
+    "group": "声笔系列码",
+    "target": "sbxlm",
+    "dependencies": ["sbzdy", "jmzdy", "sb", "ss", "sss"],
     "variants": [],
-    "extended": true,
-    "family": [
-      {
-        "id": "wubi_pinyin",
-        "name": "86五笔·拼音"
-      },
-      {
-        "id": "wubi_trad",
-        "name": "86五笔·繁体",
-        "variants": [
-          {
-            "id": "zh_trad",
-            "name": "繁"
-          },
-          {
-            "id": "zh_simp",
-            "name": "简"
-          }
-        ]
-      }
-    ],
-    "license": "LGPL-3.0-only"
+    "license": "LGPL-3.0-only",
+    "local": true
   },
   {
-    "id": "pinyin_simp",
-    "name": "袖珍简拼",
-    "group": "音码",
-    "target": "pinyin-simp",
-    "dependencies": ["stroke"],
+    "id": "sbpy",
+    "name": "声笔拼音",
+    "group": "声笔系列码",
+    "target": "sbxlm",
+    "dependencies": ["sbzdy", "pyzdy", "pygd"],
     "variants": [],
-    "license": "Apache-2.0"
+    "license": "LGPL-3.0-only",
+    "local": true
   },
   {
-    "id": "terra_pinyin",
-    "name": "地球拼音",
-    "group": "音码",
-    "target": "terra-pinyin",
-    "dependencies": ["stroke"],
-    "license": "LGPL-3.0-only"
-  },
-  {
-    "id": "ipa_xsampa",
-    "name": "X-SAMPA",
-    "group": "音标",
-    "target": "ipa",
+    "id": "sbfm",
+    "name": "声笔飞码",
+    "group": "声笔系列码",
+    "target": "sbxlm",
+    "dependencies": [
+      "sbzdy",
+      "fmzdy",
+      "sb",
+      "s_b",
+      "fmsbb",
+      "fmsbb_lookup",
+      "fmn",
+      "sbbb",
+      "sbs",
+      "sbsb",
+      "sbs_b",
+      "sps",
+      "spsb",
+      "sps_b"
+    ],
     "variants": [],
-    "license": "LGPL-3.0-only"
+    "family": [
+      { "id": "sbfd", "name": "声笔飞单" }
+    ],
+    "license": "LGPL-3.0-only",
+    "local": true
   },
   {
-    "id": "ipa_yunlong",
-    "name": "云龙国际音标",
-    "group": "音标",
-    "target": "ipa",
+    "id": "sbfx",
+    "name": "声笔飞讯",
+    "group": "声笔系列码",
+    "target": "sbxlm",
+    "dependencies": [
+      "sbzdy",
+      "fmzdy",
+      "sb",
+      "s_b",
+      "fmsbb",
+      "fmsbb_lookup",
+      "fmn",
+      "sbbb",
+      "sbs",
+      "sbsb",
+      "sbs_b",
+      "sps",
+      "spsb",
+      "sps_b"
+    ],
     "variants": [],
-    "license": "LGPL-3.0-only"
+    "license": "LGPL-3.0-only",
+    "local": true
   },
   {
-    "id": "bopomofo",
-    "name": "注音",
-    "group": "音码",
-    "target": "bopomofo",
-    "dependencies": ["terra_pinyin", "stroke"],
-    "variants": [
-      {
-        "id": "zh_hans",
-        "name": "简"
-      },
-      {
-        "id": "zh_hant_tw",
-        "name": "臺",
-        "languages": ["zh-TW"]
-      },
-      {
-        "id": "zh_hant",
-        "name": "繁",
-        "languages": ["zh-HK"]
-      }
+    "id": "sbzr",
+    "name": "声笔自然",
+    "group": "声笔系列码",
+    "target": "sbxlm",
+    "dependencies": [
+      "sbzdy",
+      "zrzdy",
+      "ss",
+      "sxs",
+      "zrszb",
+      "zrts2",
+      "zrszb_lookup"
     ],
-    "family": [
-      {
-        "id": "bopomofo_express",
-        "name": "注音·快打"
-      }
-    ],
-    "license": "LGPL-3.0-only"
-  },
-  {
-    "id": "combo_pinyin",
-    "name": "宫保拼音·七指禅",
-    "group": "并击",
-    "target": "combo-pinyin",
-    "dependencies": ["luna_pinyin"],
-    "family": [
-      {
-        "id": "combo_pinyin_8",
-        "name": "宫保拼音·八指禅"
-      },
-      {
-        "id": "combo_pinyin_9",
-        "name": "宫保拼音·九指禅"
-      },
-      {
-        "id": "combo_pinyin_10",
-        "name": "宫保拼音·十指禅"
-      }
-    ],
-    "license": "GPL-3.0-only"
-  },
-  {
-    "id": "zyenpheng",
-    "name": "中古全拼",
-    "group": "古音",
-    "target": "middle-chinese",
-    "dependencies": ["luna_pinyin"],
-    "family": [
-      {
-        "id": "sampheng",
-        "name": "中古三拼"
-      }
-    ],
-    "license": "GPL-3.0-only"
-  },
-  {
-    "id": "cangjie5",
-    "name": "仓颉五代",
-    "group": "形码",
-    "target": "cangjie",
-    "dependencies": ["luna_quanpin"],
-    "extended": true,
-    "family": [
-      {
-        "id": "cangjie5_express",
-        "name": "仓颉五代·快打"
-      }
-    ],
-    "license": "LGPL-3.0-only"
-  },
-  {
-    "id": "stroke",
-    "name": "五笔画",
-    "group": "形码",
-    "target": "stroke",
-    "dependencies": ["luna_pinyin"],
     "variants": [],
-    "license": "LGPL-3.0-only"
+    "license": "LGPL-3.0-only",
+    "local": true
   },
   {
-    "id": "array30",
-    "name": "行列30",
-    "group": "形码",
-    "target": "array",
-    "dependencies": ["luna_quanpin"],
-    "extended": true,
-    "hideComment": "emoji",
-    "license": "GPL-3.0-only"
-  },
-  {
-    "id": "wugniu_lopha",
-    "name": "上海吴语·老派",
-    "group": "方言",
-    "target": "wugniu",
-    "dependencies": ["luna_pinyin"],
-    "family": [
-      {
-        "id": "wugniu",
-        "name": "上海吴语·新派"
-      }
+    "id": "sbxh",
+    "name": "声笔小鹤",
+    "group": "声笔系列码",
+    "target": "sbxlm",
+    "dependencies": [
+      "sbzdy",
+      "xhzdy",
+      "ss",
+      "shs",
+      "xhszb",
+      "xhts2",
+      "xhszb_lookup"
     ],
-    "license": "GPL-3.0-only"
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
   },
   {
-    "id": "soutzoe",
-    "name": "苏州吴语",
-    "group": "方言",
-    "target": "soutzoe",
-    "dependencies": ["luna_pinyin"],
-    "license": "GPL-3.0-only"
+    "id": "sbzdy",
+    "name": "声笔自定义",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
   },
   {
-    "id": "stenotype",
-    "name": "打字速记法",
-    "group": "音码",
-    "target": "stenotype",
-    "dependencies": ["luna_pinyin"],
-    "license": "GPL-3.0-only"
+    "id": "jmzdy",
+    "name": "简码自定义",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
   },
   {
-    "id": "scj6",
-    "name": "快速仓颉",
-    "group": "形码",
-    "target": "scj",
-    "dependencies": ["luna_quanpin"],
-    "license": "GPL-3.0-only"
+    "id": "pyzdy",
+    "name": "拼音自定义",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
   },
   {
-    "id": "quick5",
-    "name": "速成",
-    "group": "形码",
-    "target": "quick",
-    "dependencies": ["luna_quanpin"],
-    "license": "LGPL-3.0-only"
+    "id": "fmzdy",
+    "name": "飞码自定义",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "zrzdy",
+    "name": "自然自定义",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "xhzdy",
+    "name": "小鹤自定义",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "sb",
+    "name": "声笔字",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "s_b",
+    "name": "声笔字补充",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "ss",
+    "name": "声声词",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "sss",
+    "name": "声声声词",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "fmsbb",
+    "name": "声笔笔字",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "fmsbb_lookup",
+    "name": "声笔笔字反查",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "sbs",
+    "name": "声笔声词",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "sbsb",
+    "name": "声笔声笔词",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "sbs_b",
+    "name": "声笔声笔词补充",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "sps",
+    "name": "声偏声词",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "spsb",
+    "name": "声偏声笔词",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "sps_b",
+    "name": "声偏声笔词补充",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "sbbb",
+    "name": "声笔笔笔",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "jmn",
+    "name": "简码数选",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "fmn",
+    "name": "飞码数选",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "hypy",
+    "name": "汉语拼音",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "bihua",
+    "name": "笔画",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "zhlf",
+    "name": "字海两分",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "pygd",
+    "name": "拼音固顶",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "sxs",
+    "name": "自然声韵声词",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "zrszb",
+    "name": "自然声笔笔",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "zrts2",
+    "name": "自然ts2",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "zrszb_lookup",
+    "name": "自然声笔笔反查",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "shs",
+    "name": "小鹤声韵声词",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "xhszb",
+    "name": "小鹤声笔笔",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "xhts2",
+    "name": "小鹤ts2",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
+  },
+  {
+    "id": "xhszb_lookup",
+    "name": "小鹤声笔笔反查",
+    "group": "声笔系列码",
+    "disabled": true,
+    "target": "sbxlm",
+    "dependencies": [],
+    "variants": [],
+    "license": "LGPL-3.0-only",
+    "local": true
   }
 ]

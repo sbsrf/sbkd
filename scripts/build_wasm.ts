@@ -50,7 +50,7 @@ const compileArgs = [
   '-o', 'public/rime.js'
 ]
 
-for (const file of ['rime.lua', 'lua']) {
+for (const file of ['rime.lua', 'lua', 'sbjm.userdb', 'sbfm.userdb', 'sbfx.userdb']) {
   const path = `${RIME_PATH}/${file}`
   if (existsSync(path)) {
     compileArgs.push('--preload-file', `${path}@${RIME_SHARED}/${file}`)

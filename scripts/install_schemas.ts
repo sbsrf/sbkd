@@ -11,6 +11,7 @@ import {
 import { rf, utf8, ensure, md5sum } from './util.js'
 import packageJson from '../package.json' assert { type: 'json' }
 import schemas from '../schemas.json' assert { type: 'json' }
+import { LocalLoader } from './local_loader.js'
 
 const root = cwd()
 const { version } = packageJson
@@ -86,8 +87,8 @@ for (const fileName of ['rime.lua', 'lua', 'opencc']) {
 }
 
 mkdirSync(`${RIME_DIR}/opencc`, { recursive: true })
-for (const fileName of readdirSync('rime-config')) {
-  cpSync(`rime-config/${fileName}`, `${RIME_DIR}/${fileName}`, { recursive: true })
+for (const fileName of readdirSync('sbxlm-config')) {
+  cpSync(`sbxlm-config/${fileName}`, `${RIME_DIR}/${fileName}`, { recursive: true })
 }
 await Promise.all(['prelude', 'essay', 'emoji'].map(target => install(new Recipe(new GitHubDownloader(target)))))
 
@@ -101,7 +102,8 @@ writeFileSync(emojiJson, JSON.stringify(emojiContent))
 rmSync(emojiCategory, rf)
 
 for (const schema of schemas) {
-  const recipe = new Recipe(new GitHubDownloader(schema.target, [schema.id]))
+  const loader = schema.local === true ? new LocalLoader(schema.target, [schema.id]) : new GitHubDownloader(schema.target, [schema.id])
+  const recipe = new Recipe(loader);
   const target = recipe.loader.repo.match(/(rime\/rime-)?(.*)/)![2]
   if (!(target in targetManifest)) {
     targetManifest[target] = []
@@ -119,6 +121,7 @@ for (const schema of schemas) {
   if (schema.dependencies) {
     dependencyMap[schema.id] = schema.dependencies
   }
+  // @ts-ignore
   if (schema.family) {
     // @ts-ignore
     for (const { id, name, disabled } of schema.family) {
@@ -134,6 +137,7 @@ for (const schema of schemas) {
     }
   }
   await install(recipe, target)
+  // @ts-ignore
   if (schema.emoji) {
     writeFileSync(`${RIME_DIR}/${schema.id}.custom.yaml`,
 `__patch:
