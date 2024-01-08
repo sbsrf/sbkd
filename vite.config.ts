@@ -55,27 +55,27 @@ const plugins = [
   vue()
 ]
 
-if (process.env.NODE_ENV !== 'production') {
-  const watchFiles = [
-    'worker.ts',
-    'schema-files.json',
-    'schema-name.json',
-    'schema-target.json',
-    'dependency-map.json',
-    'target-files.json',
-    'target-version.json'
-  ]
-  plugins.push(run({
-    input: [
-      {
-        name: 'Transpile worker',
-        run: ['pnpm run worker'],
-        condition: file => watchFiles.some(name => file.includes(name))
-      }
-    ],
-    silent: false
-  }))
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   const watchFiles = [
+//     'worker.ts',
+//     'schema-files.json',
+//     'schema-name.json',
+//     'schema-target.json',
+//     'dependency-map.json',
+//     'target-files.json',
+//     'target-version.json'
+//   ]
+//   plugins.push(run({
+//     input: [
+//       {
+//         name: 'Transpile worker',
+//         run: ['pnpm run worker'],
+//         condition: file => watchFiles.some(name => file.includes(name))
+//       }
+//     ],
+//     silent: false
+//   }))
+// }
 
 export default defineConfig({
   base: '',
