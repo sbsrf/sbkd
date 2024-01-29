@@ -87,7 +87,7 @@ const AsyncEditor = defineAsyncComponent(() => import('../components/MyEditor.vu
       ref="panel"
       :debug-mode="simulator?.debugMode"
     />
-    <my-appearance />
+    <!-- <my-appearance />
     <my-font />
     <my-deployer />
     <micro-plum />
@@ -111,6 +111,6 @@ const AsyncEditor = defineAsyncComponent(() => import('../components/MyEditor.vu
       v-show="showEditor"
       ref="editor"
     />
-    <my-platform />
+    <my-platform /> -->
   </n-space>
 </template>
