@@ -89,16 +89,16 @@ mkdirSync(`${RIME_DIR}/opencc`, { recursive: true })
 for (const fileName of readdirSync('rime-config')) {
   cpSync(`rime-config/${fileName}`, `${RIME_DIR}/${fileName}`, { recursive: true })
 }
-await Promise.all(['prelude', 'essay', 'emoji'].map(target => install(new Recipe(new GitHubDownloader(target)))))
+await Promise.all(['prelude'].map(target => install(new Recipe(new GitHubDownloader(target)))))
 
 // remove emoji_category as I don't want to visit a zoo when I type 东吴
-const emojiJson = `${RIME_DIR}/opencc/emoji.json`
-const emojiCategory = `${RIME_DIR}/opencc/emoji_category.txt`
-const emojiContent = JSON.parse(readFileSync(emojiJson, utf8))
-const emojiDict = emojiContent.conversion_chain[0].dict
-emojiDict.dicts = emojiDict.dicts.filter(({ file }: { file: string }) => file !== 'emoji_category.txt')
-writeFileSync(emojiJson, JSON.stringify(emojiContent))
-rmSync(emojiCategory, rf)
+// const emojiJson = `${RIME_DIR}/opencc/emoji.json`
+// const emojiCategory = `${RIME_DIR}/opencc/emoji_category.txt`
+// const emojiContent = JSON.parse(readFileSync(emojiJson, utf8))
+// const emojiDict = emojiContent.conversion_chain[0].dict
+// emojiDict.dicts = emojiDict.dicts.filter(({ file }: { file: string }) => file !== 'emoji_category.txt')
+// writeFileSync(emojiJson, JSON.stringify(emojiContent))
+// rmSync(emojiCategory, rf)
 
 for (const schema of schemas) {
   const recipe = new Recipe(new GitHubDownloader(schema.target, [schema.id]))
