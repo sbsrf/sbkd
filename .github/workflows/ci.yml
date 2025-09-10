@@ -5,7 +5,10 @@ on:
     branches:
       - master
   pull_request:
-
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 jobs:
   build-ubuntu:
     uses: ./.github/workflows/build.yml
