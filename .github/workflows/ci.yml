@@ -44,7 +44,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v4
         with:
           version: 9
       - name: Use Node.js latest
@@ -59,7 +59,7 @@ jobs:
           npx playwright install ${{ matrix.browser }}
           npx playwright install-deps ${{ matrix.browser }}
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: artifact.tar
       - name: Untar files
@@ -80,9 +80,9 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: artifact.tar
       - name: Untar files
